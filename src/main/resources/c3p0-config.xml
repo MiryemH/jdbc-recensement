@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<c3p0-config>
+    <!-- The default configuration, if not specified, is used -->
+    <default-config>
+        <property name="user">root</property>
+        <property name="password">SalmaneYasser@1517</property>
+        <property name="jdbcUrl">jdbc:mariadb://localhost:3306/recensement</property>
+        <!-- Configuration initialization size, minimum, maximum -->
+        <property name="initialSize" value="10" />
+        <property name="minIdle" value="3" />
+        <property name="maxActive" value="20" />
+
+        <!-- Configuration to get the connection waiting timeout time -->
+        <property name="maxWait" value="60000" />
+
+        <!-- How often is the configuration interval detected to detect idle connections that need to be closed in milliseconds? -->
+        <property name="timeBetweenEvictionRunsMillis" value="60000" />
+
+        <!-- Configure the minimum lifetime of a connection in the pool in milliseconds -->
+        <property name="minEvictableIdleTimeMillis" value="300000" />
+
+        <property name="validationQuery" value="SELECT 1" />
+        <property name="testWhileIdle" value="true" />
+        <property name="testOnBorrow" value="false" />
+        <property name="testOnReturn" value="false" />
+
+        <!-- open PSCache，And specify on each connection PSCache Size -->
+        <property name="poolPreparedStatements" value="true" />
+        <property name="maxPoolPreparedStatementPerConnectionSize"
+                  value="100" />
+        <property name="maxPoolSize">100</property>
+        <property name="minPoolSize">3</property>
+        <property name="maxStatements">200</property>
+    </default-config>
+    <!-- Named configuration,This can be achieved through method calls -->
+    <named-config name="maConnexion" >
+        <property name="user">root</property>
+        <property name="password">SalmaneYasser@1517</property>
+        <property name="setDriverClass">com.mariadb.jdbc.driver</property>
+        <property name="jdbcUrl">jdbc:mariadb://localhost:3306/recensement</property>
+        <!--The number of new database connections created at one time by the connection pool when no free connections are available, default: 3-->
+        <property name="acquireIncrement">5</property>
+        <!-- The number of connections when initializing the database connection pool -->
+        <property name="initialPoolSize">5</property>
+        <!-- The maximum number of database connections in the database connection pool -->
+        <property name="maxPoolSize">15</property>
+        <!-- The minimum number of database connections in the database connection pool -->
+        <property name="minPoolSize">3</property>
+        <!-- The maximum idle time of the connection. If it exceeds this time and a database connection has not been used, the connection will be disconnected. If it is 0, the connection will never be disconnected, that is, the connection will be recycled. default: 0 unit s-->
+        <property name="maxIdleTime">1000</property>
+        <!-- The connection pool is the number of PreparedStatements cached by a single Connection of the data source. This configuration is more meaningful than maxStatements because the service object it caches is a single data connection.-->
+        <property name="maxStatements">500</property>
+        <!-- -->
+        <property name="maxStatementsPerConnection">400</property>
+
+        <!-->acquireRetryDelay: The interval time between two connections, in milliseconds, the interval time when the connection pool obtains a new connection. default: 1000 unit ms (recommended)-->
+        <property name="acquireRetryAttempts">5</property>
+    </named-config>
+</c3p0-config>
+        <!--configuration>
+            <admin>
+                <nom>HRARTI</nom>
+                <prenom>Miryem</prenom>
+            </admin>
+            <basededonnees nom="compta2">
+                <driver>jdbc:mysql</driver>
+                <host>localhost</host>
+                <port>3306</port>
+                <user>root</user>
+                <pwd>SalmaneYasser@1517</pwd>
+                <url>jdbc:mariadb://localhost:3306/compta</url>
+            </basededonnees>
+        </configuration-->
+
+
