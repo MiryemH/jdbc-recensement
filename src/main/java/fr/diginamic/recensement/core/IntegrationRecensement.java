@@ -107,18 +107,29 @@ public class IntegrationRecensement {
             villeService.supprimerVille(v1Dept1);
             departementService.getDepartement(dept1.getCode());
             regionService.getRegion(nvRegion.getCode());
-
+            Departement dept3 = new Departement();
+            dept3.setCode("MSY3");
+            dept3.setRegion(nvRegion);
 
             // insertion + mise à jour
-            Ville v3Dept1 = new Ville();
-            v3Dept1.setCode(6003);
-            v3Dept1.setNom("ville5");
-            v3Dept1.setPopulation(50000);
-            v3Dept1.setRegion(nvRegion);
-            v3Dept1.setDepartement(dept1);
+            Ville v1Dept3 = new Ville();
+            v1Dept3.setCode(7003);
+            v1Dept3.setNom("ville5");
+            v1Dept3.setPopulation(65000);
+            v1Dept3.setRegion(nvRegion);
+            v1Dept3.setDepartement(dept3);
+            Ville v2Dept3 = new Ville();
+            v2Dept3.setCode(7004);
+            v2Dept3.setNom("ville6");
+            v2Dept3.setPopulation(70000);
+            v2Dept3.setRegion(nvRegion);
+            v2Dept3.setDepartement(dept3);
+            dept3.ajouterVille(v1Dept3);
 
-            villeService.creerVille(v3Dept1);
-            departementService.getDepartement(dept1.getCode());
+            departementService.creerDepartement(dept3);
+            villeService.creerVille(v2Dept3);
+            villeService.mettreAjour(v2Dept3, 100000);
+            departementService.getDepartement(dept3.getCode());
             regionService.getRegion(nvRegion.getCode());
 
             departementService.supprimerDepartement(dept2);
@@ -128,7 +139,6 @@ public class IntegrationRecensement {
         } catch (IOException ioException) {
             System.err.println("Erreur d'accès au fichier. "+ioException.getMessage());
         }
-
     }
 
     /**

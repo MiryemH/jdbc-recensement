@@ -115,7 +115,7 @@ public class VilleDaoImpl implements VilleDao{
         int nb = 0;
         try {
             connexion = ConnexionManagerBDD.getInstance();
-            preparedStatement = connexion.prepareStatement("UPDATE Villes SET population = ? WHERE WHERE code_ville=? AND nom = ? AND code_dept = ? AND code_region = ?;");
+            preparedStatement = connexion.prepareStatement("UPDATE Villes SET population = ? WHERE code_ville=? AND nom = ? AND code_dept = ? AND code_region = ?;");
             preparedStatement.setInt(1, nvPopulation);
             preparedStatement.setInt(2,ville.getCode());
             preparedStatement.setString(3,ville.getNom());
