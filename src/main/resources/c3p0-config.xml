@@ -36,7 +36,7 @@
     <named-config name="maConnexion" >
         <property name="user">root</property>
         <property name="password">SalmaneYasser@1517</property>
-        <property name="setDriverClass">com.mariadb.jdbc.driver</property>
+        <property name="setDriverClass">com.mariadb.jdbc.Driver</property>
         <property name="jdbcUrl">jdbc:mariadb://localhost:3306/recensement</property>
         <!--The number of new database connections created at one time by the connection pool when no free connections are available, default: 3-->
         <property name="acquireIncrement">5</property>
